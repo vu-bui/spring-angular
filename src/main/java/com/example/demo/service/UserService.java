@@ -13,22 +13,26 @@ public class UserService {
   @Autowired
   public UserService(UserRepository userRepository) {
     this.userRepository = userRepository;
-    this.currentUser = new ThreadLocal<User>();
+    currentUser = new ThreadLocal<>();
   }
 
   public User getCurrentUser() {
-    return this.currentUser.get();
+    return currentUser.get();
   }
 
   public void login() {
-    this.currentUser.set(this.userRepository.findById(0L).get());
+    currentUser.set(userRepository.findById(0L).orElse(null));
   }
 
   public void logout() {
-    this.currentUser.remove();
+    currentUser.remove();
   }
 
   public Iterable<User> getUsers() {
-    return this.userRepository.findAll();
+    return userRepository.findAll();
+  }
+
+  public User createUser(User user) {
+    return userRepository.save(user);
   }
 }

@@ -4,6 +4,9 @@ import com.example.demo.auth.Auth;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,14 +20,19 @@ public class UserController {
     this.userService = userService;
   }
 
-  @RequestMapping()
+  @GetMapping
   public Iterable<User> getUsers() {
-    return this.userService.getUsers();
+    return userService.getUsers();
+  }
+
+  @PostMapping
+  public User createUser(@RequestBody User user) {
+    return userService.createUser(user);
   }
 
   @Auth
-  @RequestMapping("/me")
+  @GetMapping("/me")
   public User getCurrentUser() {
-    return this.userService.getCurrentUser();
+    return userService.getCurrentUser();
   }
 }
