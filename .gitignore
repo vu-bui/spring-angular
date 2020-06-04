@@ -470,4 +470,4 @@ gradle-app.setting
 ### Custom ###
 package-lock.json
 yarn.lock
-application-dev.properties
+application-dev.yaml

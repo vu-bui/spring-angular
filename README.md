@@ -29,7 +29,7 @@ MIT-licensed template for scaffolding self-container Java RESTful web server. Te
   - [Gradle](https://gradle.org) for building from CLI
 
 ### Development Configurations
-Create a file at `server/src/resouces/application-dev.yaml` and override any configuration from its sibling `application.yaml` as needed.
+Create a file at `src/resouces/application-dev.yaml` and override any configuration from its sibling `application.yaml` as needed.
 
 ### Commands
   - Install UI dependencies

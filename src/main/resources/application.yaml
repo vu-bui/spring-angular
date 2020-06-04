@@ -13,3 +13,11 @@ spring:
       cachecontrol:
         cache-public: true
         max-age: 31536000
+
+  output:
+    ansi:
+      enabled: ALWAYS
+
+logging:
+  pattern:
+    file: "{\"time\": \"%d\", \"level\": \"%p\", \"source\": \"%logger{63}:%L\", \"message\": \"%replace(%m%wEx{6}){'[\r\n]+', '\\n'}%nopex\"}%n"

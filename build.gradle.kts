@@ -50,7 +50,7 @@ dependencies {
   // runtimeOnly("io.r2dbc:r2dbc-postgresql")
   annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
   annotationProcessor("org.projectlombok:lombok")
-  providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+  // providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
   testImplementation("org.springframework.boot:spring-boot-starter-test") {
     exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
   }
