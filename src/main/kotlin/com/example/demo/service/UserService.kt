@@ -5,7 +5,7 @@ import com.example.demo.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service
-class UserService constructor(private val userRepository: UserRepository) {
+class UserService(private val userRepository: UserRepository) {
   private val _currentUser = ThreadLocal<User>()
   val currentUser: User?
     get() = _currentUser.get()

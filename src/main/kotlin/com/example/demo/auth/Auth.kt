@@ -13,7 +13,7 @@ annotation class Auth
 
 @Aspect
 @Component
-class AuthAspect constructor(private val userService: UserService) {
+class AuthAspect(private val userService: UserService) {
   /**
    * Check for currentUser before going to the method annotated with @Auth.
    */

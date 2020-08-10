@@ -10,6 +10,7 @@ import org.springframework.security.oauth2.core.DefaultOAuth2AuthenticatedPrinci
 import org.springframework.security.oauth2.core.OAuth2AuthenticatedPrincipal
 import org.springframework.security.oauth2.server.resource.introspection.OpaqueTokenIntrospector
 import java.text.ParseException
+import java.util.*
 
 @Configuration
 @EnableWebSecurity
@@ -23,7 +24,7 @@ class WebSecurityConfig : WebSecurityConfigurerAdapter() {
           return null
         }
         return DefaultOAuth2AuthenticatedPrincipal(
-          jwt.claims,
+          jwt.claims.mapValues { (_, v) -> if (v is Date) v.toInstant() else v },
           AuthorityUtils.NO_AUTHORITIES
         )
       }

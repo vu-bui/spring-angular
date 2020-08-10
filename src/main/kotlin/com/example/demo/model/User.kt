@@ -7,7 +7,7 @@ import javax.persistence.*
 data class User(
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  val id: Long = 0,
+  override val id: Long = 0,
   var username: String? = null,
   var email: String? = null
-)
+) : BaseModel

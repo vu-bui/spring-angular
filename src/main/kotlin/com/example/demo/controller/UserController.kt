@@ -8,7 +8,7 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/users")
-class UserController constructor(private val userService: UserService) {
+class UserController(private val userService: UserService) {
   @get:GetMapping
   val users: Iterable<User>
     get() = userService.users
